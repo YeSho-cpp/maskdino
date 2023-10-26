@@ -312,5 +312,3 @@ def get_metric(predictions):
 
 #   print('result_PQ = {},result_AJI = {}, result_Dice = {}'.format(result_PQ,
 #       result_AJI, result_Dice))
-  
-get_metric(33)
