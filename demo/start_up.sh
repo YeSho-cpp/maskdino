@@ -1,0 +1,2 @@
+export DETECTRON2_DATASETS=/root/autodl-tmp/MaskDINO
+python train_net.py --num-gpus 1 --config-file /root/autodl-tmp/MaskDINO/configs/coco/instance-segmentation/maskdino_R50_bs16_50ep_3s.yaml MODEL.WEIGHTS /root/autodl-tmp/MaskDINO/modelfile/maskdino_r50_50ep_300q_hid1024_3sd1_instance_maskenhanced_mask46.1ap_box51.5ap.pth

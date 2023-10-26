@@ -38,7 +38,7 @@ model_ts*.txt
 *.swo
 *.swp
 *~
-
+*.yaml
 # editor settings
 .idea
 .vscode
