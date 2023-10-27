@@ -252,7 +252,7 @@ def get_fast_pq(true, pred, match_iou=0.5):
     sq = paired_iou.sum() / (tp + 1.0e-6)
 
     return [dq, sq, dq * sq], [paired_true, paired_pred, unpaired_true, unpaired_pred]
-def get_metric(predictions):
+def get_metric(predictions,logger):
 
 	npy_data=OrderedDict()
 	for prediction in predictions:
@@ -291,24 +291,15 @@ def get_metric(predictions):
 	result_PQ = result_PQ/len(os.listdir(true_path))
 
 
-
 	# 设置日志级别为 INFO
-	logging.basicConfig(level=logging.INFO, format="%(message)s")
+	# logging.basicConfig(level=logging.INFO, format="%(message)s")
 
-	logger = logging.getLogger()
+	# logger = logging.getLogger()
 
-	header = "\n----------------------------\n\nEvaluation Medical_metirc for segm: \n"
+	header = "\n\nEvaluation Medical_metirc for segm: \n"
 	table_header = "|   PQ   |  AJI   |  Dice  |  \n|:------:|:------:|:------:|"
 	table_content = "| {:.3f} | {:.3f} | {:.3f} |".format(result_PQ*100, result_AJI*100, result_Dice*100)
-	footer = "\n\n---------------------------\n"
+	footer = "\n\n"
 
 	logger.info(header + table_header + "\n" + table_content + footer)
 
-	# # 设置日志级别为 INFO
-	# logging.basicConfig(level=logging.INFO)
-
-	# logger = logging.getLogger()
-	# logger.info('result_PQ = {}, result_AJI = {}, result_Dice = {}'.format(result_PQ, result_AJI, result_Dice))
-
-#   print('result_PQ = {},result_AJI = {}, result_Dice = {}'.format(result_PQ,
-#       result_AJI, result_Dice))

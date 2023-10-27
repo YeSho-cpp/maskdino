@@ -192,7 +192,7 @@ class COCOEvaluator(DatasetEvaluator):
         if len(predictions) == 0:
             self._logger.warning("[COCOEvaluator] Did not receive valid predictions.")
             return {}
-        get_metric(predictions)
+        get_metric(predictions,self._logger)
         if self._output_dir:
             PathManager.mkdirs(self._output_dir)
             file_path = os.path.join(self._output_dir, "instances_predictions.pth")
